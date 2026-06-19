@@ -71,3 +71,36 @@ export async function getCategories(): Promise<string[]> {
   const unique = Array.from(new Set(books.map((b) => b.category)));
   return unique;
 }
+
+export async function getBooks(params: {
+  category?: string;
+  sort?: "price" | "newest";
+}): Promise<Book[]> {
+  await new Promise((r) => setTimeout(r, 500));
+  let result = [...books];
+  if (params.category) {
+    result = result.filter((b) => b.category === params.category);
+  }
+  if (params.sort === "price") {
+    result = result.sort((a, b) => a.price - b.price);
+  } else if (params.sort === "newest") {
+    result = result.sort(
+      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
+  }
+  return result;
+}
+
+export async function getAllSlugs(): Promise<string[]> {
+  return books.map((b) => b.slug);
+}
+
+export async function getBookBySlug(slug: string): Promise<Book | undefined> {
+  await new Promise((r) => setTimeout(r, 500));
+  return books.find((b) => b.slug === slug);
+}
+
+export async function getRecommendedBooks(currentSlug: string): Promise<Book[]> {
+  await new Promise((r) => setTimeout(r, 1500));
+  return books.filter((b) => b.slug !== currentSlug).slice(0, 3);
+}

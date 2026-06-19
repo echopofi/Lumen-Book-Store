@@ -40,3 +40,55 @@ Issues encountered:
   None. All routes existed in the folder structure; only placeholder text
   needed updating. BookGrid already accepted the expected (title, books)
   props, so no signature changes were required.
+
+Books Catalog Route Build
+========================================
+
+Files modified:
+  lib/data.ts                Added getBooks() — accepts optional { category,
+                             sort } params, filters/sorts the book array.
+  app/books/page.tsx         Replaced placeholder with full catalog page:
+                             reads async searchParams, renders category and
+                             sort filter pills (Link-based, updates URL),
+                             displays book cards or "No books found" message.
+
+Build output — route table excerpt:
+  ├ ƒ /books
+  ├ ƒ /books/[slug]
+
+  /books is marked ƒ (Dynamic), confirmed. No force-dynamic export needed
+  — Next.js 16's async searchParams automatically makes the route dynamic.
+
+Issues encountered:
+  None.
+
+Book Detail Route Build (/books/[slug])
+========================================
+
+Files modified:
+  lib/data.ts                    Added getAllSlugs(), getBookBySlug(slug),
+                                 getRecommendedBooks(currentSlug).
+  app/books/[slug]/page.tsx      Full rewrite implementing:
+                                   - generateStaticParams (SSG)
+                                   - generateMetadata (dynamic title + OG tags)
+                                   - Book detail (image, title, author,
+                                     price, description)
+                                   - Suspense-streamed "Recommended for You"
+                                     section with pulsing skeleton fallback.
+
+Build output — route table excerpt:
+  ● /books/[slug]
+  │ ├ /books/the-silent-orbit
+  │ ├ /books/harbor-of-ash
+  │ ├ /books/the-quiet-algorithm
+  │ └ /books/fields-of-glass
+
+  /books/[slug] is marked ● (SSG) — confirmed 4 slugs pre-rendered at build
+  time via generateStaticParams.
+
+Other notes:
+  - metadataBase warning appears (expected — no explicit base set, uses localhost).
+  - app/not-found.tsx does not exist yet; notFound() will use Next.js default 404.
+
+Issues encountered:
+  None.

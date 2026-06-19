@@ -2,10 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 const categoryImage: Record<string, string> = {
-  "Sci-Fi": "/covers/sci-fi.svg",
-  Drama: "/covers/drama.svg",
-  Thriller: "/covers/thriller.svg",
-  Mystery: "/covers/mystery.svg",
+  "Sci-Fi": "/illustrations/scifi-book.webp",
+  Drama: "/illustrations/drama.webp",
+  Thriller: "/illustrations/thriller.webp",
+  Mystery: "/illustrations/mystery.webp",
 };
 
 export default function CategoryGrid({ categories }: { categories: string[] }) {
