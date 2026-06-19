@@ -13,7 +13,7 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center justify-between px-8 py-4 bg-white">
+    <nav className="mx-4 flex items-center justify-between px-8 py-4 bg-white rounded-3xl">
       <span className="font-bold text-lg"><img src="./covers/logo.png" alt="logo" /></span>
 
       <div className="flex gap-8">
