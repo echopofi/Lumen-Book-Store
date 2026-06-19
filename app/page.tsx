@@ -1,27 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getFeaturedBooks } from "@/lib/data";
+import Hero from "@/components/Hero";
+import { getFeaturedBooks, getCategories } from "@/lib/data";
+
 
 export const revalidate = 3600;
 
 export default async function Home() {
   const books = await getFeaturedBooks();
+  const categories = await getCategories();
 
   return (
     <div className="flex flex-col flex-1 items-center bg-zinc-50 font-sans dark:bg-black">
       {/* Hero section */}
-      <section className="flex flex-col items-center text-center gap-4 py-20 px-6">
-        <h1 className="text-4xl sm:text-5xl font-bold">Lumen Books</h1>
-        <p className="text-zinc-600 dark:text-zinc-400 max-w-md">
-          Discover your next favorite read, curated by independent sellers.
-        </p>
-        <Link
-          href="/books"
-          className="mt-2 px-6 py-3 rounded-full bg-black text-white dark:bg-white dark:text-black font-medium"
-        >
-          Browse the catalog
-        </Link>
-      </section>
+      <Hero />
 
       {/* Featured books */}
       <section className="w-full max-w-5xl px-6 pb-20">

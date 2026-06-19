@@ -66,3 +66,8 @@ export async function getFeaturedBooks(): Promise<Book[]> {
   await new Promise((r) => setTimeout(r, 500)); // simulate network latency
   return books;
 }
+export async function getCategories(): Promise<string[]> {
+  await new Promise((r) => setTimeout(r, 500));
+  const unique = Array.from(new Set(books.map((b) => b.category)));
+  return unique;
+}
