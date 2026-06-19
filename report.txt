@@ -1,0 +1,42 @@
+Report — Landing Page & Route Scaffold
+========================================
+
+Files modified:
+  app/page.tsx                Replaced inline Featured Books <section> with
+                              <BookGrid title="Featured Books" books={books} />
+                              Removed unused imports (Image, Link) — no longer
+                              directly used.
+  app/books/page.tsx          Updated text to "Books — Coming Soon" with
+                              centered placeholder styling.
+  app/login/page.tsx          Updated text to "Login — Coming Soon".
+  app/dashboard/page.tsx      Updated text to "Dashboard — Coming Soon".
+  app/dashboard/new/page.tsx  Updated text to "New Book — Coming Soon".
+  app/contact/page.tsx        Updated text to "Contact — Coming Soon".
+
+No new files were created.
+
+Route coverage:
+  /                Landing page (Hero, CategoryGrid, BookGrid)
+  /books           Placeholder — Coming Soon
+  /books/[slug]    Dynamic route — shows slug param
+  /login           Placeholder — Coming Soon
+  /dashboard       Placeholder — Coming Soon
+  /dashboard/new   Placeholder — Coming Soon
+  /contact         Placeholder — Coming Soon
+
+Nav links all resolve:
+  Home → /, Shop → /books, Contact → /contact, Login → /login
+
+Footer links all resolve:
+  All Books → /books, Sci-Fi → /books?category=Sci-Fi,
+  Drama → /books?category=Drama, Thriller → /books?category=Thriller,
+  Contact → /contact, FAQ → /, Login → /login, Dashboard → /dashboard
+
+Build result:
+  Compiled successfully — 0 TypeScript errors, 0 lint errors.
+  All 8 routes generated without warnings.
+
+Issues encountered:
+  None. All routes existed in the folder structure; only placeholder text
+  needed updating. BookGrid already accepted the expected (title, books)
+  props, so no signature changes were required.

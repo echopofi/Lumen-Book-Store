@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -14,7 +15,9 @@ export default function Nav() {
 
   return (
     <nav className="mx-4 flex items-center justify-between px-8 py-4 bg-white rounded-3xl">
-      <span className="font-bold text-lg"><img src="./covers/logo.png" alt="logo" /></span>
+      <span className="font-bold text-lg">
+            <Image src="/covers/logo.png" alt="logo" width={40} height={40} />
+          </span>
 
       <div className="flex gap-8">
         {links.map((link) => {
