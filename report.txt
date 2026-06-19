@@ -189,3 +189,65 @@ Deprecation notice (non-blocking):
 
 Issues encountered:
   None.
+
+API Route & Live Search Build (/api/books + LiveSearch)
+=========================================================
+
+Files created:
+  app/api/books/route.ts        GET Route Handler — reads ?q= search param,
+                                calls getBooks({}), filters by title
+                                (case-insensitive), returns JSON.
+  components/LiveSearch.tsx     Client component with debounced (300ms) input
+                                that fetches /api/books?q=... and displays
+                                matching results in a dropdown below the
+                                input. Styled with rounded-full input and
+                                brand-purple focus ring.
+
+Files modified:
+  app/books/page.tsx            Added import and <LiveSearch /> above the
+                                category filter pills.
+
+Build output — route table excerpt:
+  ├ ƒ /api/books
+
+  /api/books is marked ƒ (Dynamic) — expected for a Route Handler reading
+  request search params.
+
+How to test the API directly:
+  Visit http://localhost:3000/api/books?q=silent
+  Expected response: JSON array with one book (The Silent Orbit).
+
+Debounce strategy:
+  300ms debounce via setTimeout/clearTimeout in useEffect on the query
+  state. Results clear when input is empty.
+
+Issues encountered:
+  useRef<T>() without an initial value failed TypeScript check — fixed by
+  providing | undefined and passing undefined as the initial value.
+
+Loading & Error UI States
+===========================
+
+Files created:
+  app/loading.tsx               Root loading state — centered branded spinner
+                                (rotating border spinner with brand-purple)
+                                and "Loading…" text.
+  app/books/loading.tsx         Route-level loading skeleton for /books —
+                                4-column grid of pulsing gray rectangles
+                                matching the catalog layout, plus skeleton
+                                filter pills.
+  app/error.tsx                 Global error boundary ('use client') —
+                                displays error message, "Try again" button
+                                using brand-purple button style.
+
+Build output — 14 routes, 0 errors. Loading/error files do not appear in
+the route table (they are internal to the framework, not separate routes).
+
+How to test the error boundary:
+  Temporarily add `throw new Error("Test error");` at the top of any
+  server component (e.g. app/page.tsx's Home function), then visit that
+  route. The error.tsx UI should appear with the message and a "Try again"
+  button. Revert the throw after testing.
+
+Issues encountered:
+  None.

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import LiveSearch from "@/components/LiveSearch";
 import { getBooks, getCategories } from "@/lib/data";
 
 const categories = ["All", "Sci-Fi", "Drama", "Thriller", "Mystery"];
@@ -23,6 +24,8 @@ export default async function BooksPage({
     <div className="flex flex-col flex-1 items-center bg-zinc-50 font-sans">
       <div className="w-full max-w-5xl px-6 py-10">
         <h1 className="text-3xl font-bold mb-6">Catalog</h1>
+
+        <LiveSearch />
 
         {/* Category filters */}
         <div className="flex flex-wrap gap-2 mb-4">
