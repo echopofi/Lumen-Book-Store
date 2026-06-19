@@ -92,3 +92,100 @@ Other notes:
 
 Issues encountered:
   None.
+
+Login Route Build (/login)
+============================
+
+Files created:
+  .env.local                    Environment variables (git-ignored):
+                                SELLER_PASSWORD, NEXT_PUBLIC_SITE_NAME.
+  .env.example                  Documented env vars with placeholder values
+                                (committed to git).
+  app/login/actions.ts          Server Action: validates username/password,
+                                sets httpOnly auth cookie, redirects to
+                                /dashboard on success, returns error on fail.
+
+Files modified:
+  .gitignore                    Added !.env.example exception so the example
+                                file is tracked in git.
+  app/login/page.tsx            Replaced placeholder with full login form:
+                                "use client" with useActionState, username +
+                                password fields, error display, uses
+                                NEXT_PUBLIC_SITE_NAME.
+
+Test credentials:
+  Username: seller
+  Password: lumen-secret-2026
+
+Build result:
+  Compiled successfully — 0 TypeScript errors, 0 lint errors.
+  .env.local detected at build time ("Environments: .env.local").
+  All 9 routes generated without warnings.
+
+Issues encountered:
+  None.
+
+Middleware (Dashboard Auth Gate)
+===================================
+
+Files created:
+  middleware.ts                 Protects all /dashboard/* routes by checking
+                                for the 'auth' cookie. If missing, redirects
+                                to /login. Matcher scoped to /dashboard/:path*.
+
+Build output:
+  ƒ Proxy (Middleware)          — middleware detected and compiled.
+
+How to test:
+  1. Clear cookies for localhost:3000 (or use an incognito/private window).
+  2. Visit http://localhost:3000/dashboard directly.
+  3. Confirm you are redirected to /login.
+  4. Log in with seller / lumen-secret-2026.
+  5. Confirm you land on /dashboard afterward.
+
+Issues encountered:
+  None.
+
+Dashboard Routes Build (/dashboard, /dashboard/new)
+=====================================================
+
+Files modified:
+  lib/data.ts                    Added addBook() — inserts a new book into the
+                                 in-memory array with auto-generated id,
+                                 createdAt, and ratingsCount.
+  app/dashboard/page.tsx         Replaced placeholder with full dashboard:
+                                 reads auth cookie (SSR via cookies(), marked
+                                 ƒ Dynamic), lists all books in a table,
+                                 includes "Add New Book" link and logout
+                                 Server Action (clears cookie, redirects).
+
+Files created:
+  app/dashboard/new/actions.ts   Server Action: validates form fields, calls
+                                 addBook(), revalidates /books and / paths,
+                                 redirects to /dashboard.
+  app/dashboard/new/page.tsx     Form component with useActionState: fields
+                                 for title, author, price, slug, category,
+                                 description, coverImageUrl.
+
+Build output — route table excerpt:
+  ├ ƒ /dashboard
+  ├ ○ /dashboard/new
+
+  /dashboard is marked ƒ (Dynamic) — SSR driven by cookies() call.
+  /dashboard/new is ○ (Static) — client component form, no server data
+  fetching at the page level. The Server Action still runs server-side.
+
+How to test adding a book:
+  1. Log in at /login (seller / lumen-secret-2026).
+  2. Click "Add New Book" on the dashboard.
+  3. Fill in title, author, price, slug (e.g. "my-test-book").
+  4. Submit — you are redirected to /dashboard, new book appears in table.
+  5. Visit /books — new book appears in catalog without restart.
+
+Deprecation notice (non-blocking):
+  Next.js 16 warns "middleware file convention is deprecated. Use proxy
+  instead." — this is informational, not an error, and doesn't affect
+  functionality. Upgrade to proxy naming in a future session.
+
+Issues encountered:
+  None.

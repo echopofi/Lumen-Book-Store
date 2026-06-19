@@ -104,3 +104,15 @@ export async function getRecommendedBooks(currentSlug: string): Promise<Book[]> 
   await new Promise((r) => setTimeout(r, 1500));
   return books.filter((b) => b.slug !== currentSlug).slice(0, 3);
 }
+
+export async function addBook(book: Omit<Book, "id" | "createdAt" | "ratingsCount">): Promise<Book> {
+  await new Promise((r) => setTimeout(r, 300));
+  const newBook: Book = {
+    ...book,
+    id: String(books.length + 1),
+    createdAt: new Date().toISOString(),
+    ratingsCount: 0,
+  };
+  books.push(newBook);
+  return newBook;
+}
