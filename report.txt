@@ -251,3 +251,44 @@ How to test the error boundary:
 
 Issues encountered:
   None.
+
+Contact Route Build (/contact)
+================================
+
+Files created:
+  app/contact/actions.ts         Server Action: reads name, email, message from
+                                 FormData, validates none are empty, creates a
+                                 nodemailer transporter with Gmail SMTP, sends
+                                 to CONTACT_RECEIVER_EMAIL, returns
+                                 { success: true } or { error: '...' }.
+
+Files modified:
+  app/contact/page.tsx           Replaced placeholder with full contact form:
+                                 'use client' with useActionState, fields for
+                                 name/email/message (textarea), success message
+                                 with form reset, error display, and pending
+                                 state (disabled button with "Sending…" text).
+
+Build output — route table excerpt:
+  ○ /contact
+
+  /contact is marked ○ (Static) — client component, no dynamic server data.
+
+How to test:
+  1. Visit http://localhost:3000/contact.
+  2. Fill in name, email, and message.
+  3. Submit — on success, a green confirmation appears with "Send another
+     message" button that shows the form again; on failure, a red error
+     message is displayed.
+  4. If Gmail blocks the connection (common with nodemailer + Gmail):
+     - The SMTP_PASSWORD must be a Gmail App Password (16-letter code), not
+       the regular account password. App Passwords require 2FA enabled on the
+       Google account.
+     - Less secure app access is no longer supported by Google — App Passwords
+       are the only way.
+     - If "blocked by Google" errors occur, the account owner should visit
+       https://myaccount.google.com/security and check for "Less secure app
+       access" or generate an App Password at
+       https://myaccount.google.com/apppasswords.
+     - Gmail's rate limits (500 emails/day for personal accounts) may also
+       cause failures under heavy use.
