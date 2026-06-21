@@ -26,7 +26,7 @@ export default function Hero() {
           <input
             type="text"
             placeholder="Type here..."
-            className="flex-1 px-4 py-2 outline-none bg-transparent text-sm"
+            className="flex-1 px-4 py-2 outline-none bg-transparent text-sm text-muted"
           />
           <button
             type="submit"

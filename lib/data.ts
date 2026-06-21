@@ -75,9 +75,15 @@ export async function getCategories(): Promise<string[]> {
 export async function getBooks(params: {
   category?: string;
   sort?: "price" | "newest";
+  q?: string;
 }): Promise<Book[]> {
   await new Promise((r) => setTimeout(r, 500));
   let result = [...books];
+  if (params.q) {
+    result = result.filter((b) =>
+      b.title.toLowerCase().includes(params.q!.toLowerCase())
+    );
+  }
   if (params.category) {
     result = result.filter((b) => b.category === params.category);
   }

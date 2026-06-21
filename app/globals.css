@@ -18,6 +18,7 @@ html {
   --color-brand-purple: #5b21d6;
   --color-brand-orange: #f5a623;
   --color-brand-dark: #14142b;
+  --color-muted: #71717a;
 }
 
  @media (prefers-color-scheme: dark) {
