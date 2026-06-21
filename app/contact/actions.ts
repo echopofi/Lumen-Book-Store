@@ -28,7 +28,8 @@ export async function sendContactMessage(_prevState: unknown, formData: FormData
     });
 
     return { success: true };
-  } catch {
+  } catch (err) {
+    console.error("SMTP send failed:", err);
     return { error: "Failed to send message, please try again." };
   }
 }
