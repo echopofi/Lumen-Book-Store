@@ -14,11 +14,11 @@ const sortOptions = [
 export default async function BooksPage({
   searchParams,
 }: {
-  searchParams: Promise<{ category?: string; sort?: string }>;
+  searchParams: Promise<{ category?: string; sort?: string; q?: string }>;
 }) {
-  const { category, sort } = await searchParams;
+  const { category, sort, q } = await searchParams;
   const validSort = sort === "price" || sort === "newest" ? sort : undefined;
-  const books = await getBooks({ category, sort: validSort });
+  const books = await getBooks({ category, sort: validSort, q});
 
   return (
     <div className="flex flex-col flex-1 items-center bg-zinc-50 font-sans">
