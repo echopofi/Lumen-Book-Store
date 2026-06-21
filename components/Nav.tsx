@@ -43,7 +43,7 @@ export default function Nav() {
           href="/login"
           className="px-4 py-2 rounded-full bg-brand-purple text-white text-sm font-medium"
         >
-          Login
+          Admin
         </Link>
       </div>
     </nav>
