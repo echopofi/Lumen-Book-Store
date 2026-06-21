@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="container mx-auto mt-4 rounded-3xl bg-zinc-100 px-8 py-16 flex justify-between items-center ">
+    <section className="container mx-auto mt-4 rounded-3xl bg-zinc-300 px-8 py-16 flex justify-between items-center ">
       {/* Left: text + search */}
       <div className="max-w-md flex flex-col gap-5">
         <p className='text-brand-purple text-5xl'>

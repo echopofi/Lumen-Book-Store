@@ -12,7 +12,7 @@ export default function BookGrid({
 }) {
   return (
     <section className="container mx-auto px-8 py-16">
-      <h2 className="text-2xl font-semibold mb-8">{title}</h2>
+      <h2 className="text-2xl font-semibold text-blue-900 mb-8">{title}</h2>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
         {books.map((book) => (
           <Link
@@ -28,7 +28,7 @@ export default function BookGrid({
                 className="object-cover"
               />
             </div>
-            <h3 className="font-semibold text-sm mt-1">{book.title}</h3>
+            <h3 className="font-semibold text-brand-purple text-sm mt-1">{book.title}</h3>
             <p className="text-xs text-zinc-500">{book.author}</p>
             <p className="text-sm font-semibold text-brand-purple">
               ${book.price.toFixed(2)}
