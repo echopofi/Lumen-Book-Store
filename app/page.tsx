@@ -11,7 +11,7 @@ export default async function Home() {
   const categories = await getCategories();
 
   return (
-    <div className="flex flex-col flex-1 items-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex flex-col flex-1 items-center bg-zinc-50 font-sans ">
       {/* Hero section */}
       <Hero />
       <CategoryGrid categories={categories} />
