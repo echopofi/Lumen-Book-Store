@@ -16,7 +16,7 @@ export default function ContactPage() {
   return (
     <div className="flex flex-1 items-center justify-center bg-zinc-50 font-sans px-4">
       <div className="w-full max-w-lg">
-        <h1 className="text-3xl font-bold text-center mb-1 text-zinc-800">
+        <h1 className="text-3xl font-bold text-center mb-1 text-zinc-500">
           Contact Us
         </h1>
         <p className="text-sm text-zinc-500 text-center mb-8">
@@ -46,7 +46,7 @@ export default function ContactPage() {
                 name="name"
                 type="text"
                 required
-                className="px-4 py-2.5 rounded-xl border border-zinc-200 bg-white text-sm outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition"
+                className="px-4 py-2.5 rounded-xl border text-muted border-zinc-200 bg-white text-sm outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition"
                 placeholder="Your name"
               />
             </div>
@@ -60,7 +60,7 @@ export default function ContactPage() {
                 name="email"
                 type="email"
                 required
-                className="px-4 py-2.5 rounded-xl border border-zinc-200 bg-white text-sm outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition"
+                className="px-4 py-2.5 rounded-xl border text-muted border-zinc-200 bg-white text-sm outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition"
                 placeholder="you@example.com"
               />
             </div>
@@ -74,7 +74,7 @@ export default function ContactPage() {
                 name="message"
                 required
                 rows={5}
-                className="px-4 py-2.5 rounded-xl border border-zinc-200 bg-white text-sm outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition resize-none"
+                className="px-4 py-2.5 rounded-xl border text-muted border-zinc-200 bg-white text-sm outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition resize-none"
                 placeholder="What&apos;s on your mind?"
               />
             </div>

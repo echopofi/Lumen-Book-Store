@@ -14,12 +14,12 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav className="mx-4 flex items-center justify-between px-8 py-4 bg-white rounded-3xl">
+    <nav className="mx-4 flex items-center justify-between px-4 md:px-8 py-4 bg-white rounded-3xl">
       <span className="font-bold text-lg">
             <Image src="/covers/logo.png" alt="logo" width={40} height={40} />
           </span>
 
-      <div className="flex gap-8">
+      <div className="flex gap-4 md:gap-8">
         {links.map((link) => {
           const isActive = pathname === link.href;
           return (

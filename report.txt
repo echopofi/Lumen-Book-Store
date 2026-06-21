@@ -290,5 +290,39 @@ How to test:
        https://myaccount.google.com/security and check for "Less secure app
        access" or generate an App Password at
        https://myaccount.google.com/apppasswords.
-     - Gmail's rate limits (500 emails/day for personal accounts) may also
-       cause failures under heavy use.
+      - Gmail's rate limits (500 emails/day for personal accounts) may also
+        cause failures under heavy use.
+
+Responsive Styling (Mobile / Tablet / Desktop)
+================================================
+
+Files modified (className-only changes):
+
+  components/Nav.tsx               Reduced horizontal padding on mobile (px-4 md:px-8);
+                                   tightened link gap on mobile (gap-4 md:gap-8).
+
+  components/Hero.tsx              Reduced padding on mobile (px-4 md:px-8, py-10 md:py-16);
+                                   downscaled heading text sizes (text-3xl md:text-5xl);
+                                   tightened gap on mobile (gap-6 md:gap-10).
+
+  components/Footer.tsx            Reduced padding on mobile (px-4 md:px-8, py-10 md:py-12).
+
+  components/CategoryGrid.tsx      Reduced padding on mobile (px-4 md:px-8, py-10 md:py-16);
+                                   smaller category image on mobile (h-24 md:h-32).
+
+  components/BookGrid.tsx          Reduced padding on mobile (px-4 md:px-8, py-10 md:py-16).
+
+  app/dashboard/page.tsx           Wrapped table container in overflow-x-auto for horizontal
+                                   scroll on small screens; stacked header (title + buttons)
+                                   vertically on mobile (flex-col sm:flex-row);
+                                   reduced side padding on mobile (px-4 sm:px-6).
+
+Build result:
+  Compiled successfully — 0 TypeScript errors, 0 lint errors.
+  All 14 routes generated without warnings.
+
+Visual test notes:
+  Changes reasoned about at 375px, 768px, and 1280px widths. No visual
+  testing tool was available — all adjustments follow standard Tailwind
+  responsive patterns (md: breakpoint for tablet+ desktop, sm: breakpoint
+  for larger mobile/tablet).

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="container mx-auto bg-zinc-100 rounded-3xl px-8 py-12">
+    <footer className="container mx-auto bg-zinc-100 rounded-3xl px-4 md:px-8 py-10 md:py-12">
       <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-8">
         <div className="col-span-2 sm:col-span-1">
           <span className="font-bold text-lg text-brand-purple">Lumen Books</span>
@@ -12,7 +12,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="font-semibold text-sm mb-3">Shop</h3>
+          <h3 className="font-semibold text-sm mb-3 text-brand-purple">Shop</h3>
           <div className="flex flex-col gap-2 text-sm text-zinc-600">
             <Link href="/books" className="hover:text-brand-purple transition-colors">
               All Books
@@ -30,7 +30,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="font-semibold text-sm mb-3">Support</h3>
+          <h3 className="font-semibold text-sm mb-3 text-brand-purple">Support</h3>
           <div className="flex flex-col gap-2 text-sm text-zinc-600">
             <Link href="/contact" className="hover:text-brand-purple transition-colors">
               Contact
@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="font-semibold text-sm mb-3">Account</h3>
+          <h3 className="font-semibold text-sm mb-3 text-brand-purple">Account</h3>
           <div className="flex flex-col gap-2 text-sm text-zinc-600">
             <Link href="/login" className="hover:text-brand-purple transition-colors">
               Login

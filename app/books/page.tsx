@@ -23,7 +23,7 @@ export default async function BooksPage({
   return (
     <div className="flex flex-col flex-1 items-center bg-zinc-50 font-sans">
       <div className="w-full max-w-5xl px-6 py-10">
-        <h1 className="text-3xl font-bold mb-6">Catalog</h1>
+        <h1 className="text-3xl font-bold mb-6 text-muted">Catalog</h1>
 
         <LiveSearch />
 
@@ -96,7 +96,7 @@ export default async function BooksPage({
                     className="object-cover"
                   />
                 </div>
-                <h3 className="font-semibold text-sm mt-1">{book.title}</h3>
+                <h3 className="font-semibold text-sm mt-1 text-muted">{book.title}</h3>
                 <p className="text-xs text-zinc-500">{book.author}</p>
                 <p className="text-sm font-semibold text-brand-purple">
                   ${book.price.toFixed(2)}

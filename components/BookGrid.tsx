@@ -11,7 +11,7 @@ export default function BookGrid({
   books: Book[];
 }) {
   return (
-    <section className="container mx-auto px-8 py-16">
+    <section className="container mx-auto px-4 md:px-8 py-10 md:py-16">
       <h2 className="text-2xl font-semibold text-zinc-500 text-center mb-8">{title}</h2>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
         {books.map((book) => (

@@ -9,7 +9,7 @@ export default function LoginPage() {
   return (
     <div className="flex flex-1 items-center justify-center bg-zinc-50 font-sans">
       <div className="w-full max-w-sm mx-4">
-        <h1 className="text-2xl font-bold text-center mb-1">
+        <h1 className="text-2xl font-bold text-center text-muted mb-1">
           Login to {process.env.NEXT_PUBLIC_SITE_NAME}
         </h1>
         <p className="text-sm text-zinc-500 text-center mb-8">
@@ -26,7 +26,7 @@ export default function LoginPage() {
               name="username"
               type="text"
               required
-              className="px-4 py-2.5 rounded-xl border border-zinc-200 bg-white text-sm outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition"
+              className="px-4 py-2.5 rounded-xl border text-muted border-zinc-200 bg-white text-sm outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition"
               placeholder="seller"
             />
           </div>
@@ -40,7 +40,7 @@ export default function LoginPage() {
               name="password"
               type="password"
               required
-              className="px-4 py-2.5 rounded-xl border border-zinc-200 bg-white text-sm outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition"
+              className="px-4 py-2.5 rounded-xl border text-muted font-medium border-zinc-200 bg-white text-sm outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition"
               placeholder="••••••••"
             />
           </div>

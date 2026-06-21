@@ -50,8 +50,8 @@ const books: Book[] = [
   },
   {
     id: "4",
-    slug: "fields-of-glass",
-    title: "Fields of Glass",
+    slug: "fields-of-grass",
+    title: "Fields of Grass",
     author: "Dele Martins",
     price: 12.75,
     description: "A farming community discovers their land sits atop something far older than crops.",

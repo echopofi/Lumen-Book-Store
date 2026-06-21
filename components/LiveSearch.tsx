@@ -41,7 +41,7 @@ export default function LiveSearch() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search books…"
-        className="w-full px-5 py-2.5 rounded-full border border-zinc-200 bg-white text-sm outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition"
+        className="w-full px-5 py-2.5 rounded-full border text-muted border-zinc-200 bg-white text-sm outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition"
       />
       {open && (
         <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-2xl border border-zinc-200 shadow-md overflow-hidden z-10">

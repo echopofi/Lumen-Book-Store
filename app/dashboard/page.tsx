@@ -19,10 +19,10 @@ export default async function DashboardPage() {
 
   return (
     <div className="flex flex-col flex-1 items-center bg-zinc-50 font-sans">
-      <div className="w-full max-w-5xl px-6 py-10">
-        <div className="flex items-center justify-between mb-8">
+      <div className="w-full max-w-5xl px-4 sm:px-6 py-10">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
           <div>
-            <h1 className="text-3xl font-bold">Dashboard</h1>
+            <h1 className="text-3xl font-bold text-muted">Dashboard</h1>
             <p className="text-sm text-zinc-500 mt-1">Welcome back, seller</p>
           </div>
           <div className="flex items-center gap-4">
@@ -43,7 +43,7 @@ export default async function DashboardPage() {
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl overflow-hidden border border-zinc-100">
+        <div className="bg-white rounded-3xl overflow-x-auto border border-zinc-100">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-zinc-50 text-left text-zinc-500 text-xs uppercase tracking-wider">
@@ -65,7 +65,7 @@ export default async function DashboardPage() {
                     </Link>
                   </td>
                   <td className="px-6 py-4 text-zinc-600">{book.category}</td>
-                  <td className="px-6 py-4 font-semibold">
+                  <td className="px-6 py-4 font-semibold text-muted">
                     ${book.price.toFixed(2)}
                   </td>
                   <td className="px-6 py-4 text-zinc-500">
