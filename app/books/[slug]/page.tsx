@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { getAllSlugs, getBookBySlug, getRecommendedBooks } from "@/lib/data";
+import BuyButton from "@/components/BuyButton";
 
 export async function generateStaticParams() {
   const slugs = await getAllSlugs();
@@ -117,6 +118,7 @@ export default async function BookPage({
             <p className="text-2xl font-semibold text-brand-purple">
               ${book.price.toFixed(2)}
             </p>
+            <BuyButton />
             <p className="text-zinc-600 leading-relaxed">{book.description}</p>
           </div>
         </div>

@@ -15,9 +15,9 @@ export default function Nav() {
 
   return (
     <nav className="mx-4 flex items-center justify-between px-4 md:px-8 py-4 bg-white rounded-3xl">
-      <span className="font-bold text-lg">
+      <Link href="/" className="font-bold text-lg">
             <Image src="/covers/logo.png" alt="logo" width={40} height={40} />
-          </span>
+          </Link>
 
       <div className="flex gap-4 md:gap-8">
         {links.map((link) => {

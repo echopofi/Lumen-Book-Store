@@ -343,3 +343,22 @@ Build result:
   Compiled successfully — 0 TypeScript errors, 0 lint errors.
   Route ○ /faq generated as static (pre-rendered at build time).
   15 total routes, all passing.
+
+Logo Link & Buy Button
+================================================
+
+Files created:
+  components/BuyButton.tsx       Client component with "Buy Now" button
+                                 that shows "Coming soon!" text on click.
+
+Files modified:
+  components/Nav.tsx             Changed logo wrapper from <span> to
+                                 <Link href="/"> so clicking the logo
+                                 navigates to home.
+  app/books/[slug]/page.tsx      Added import of BuyButton and placed
+                                 <BuyButton /> after the price, before
+                                 the description.
+
+Build result:
+  Compiled successfully — 0 TypeScript errors, 0 lint errors.
+  15 total routes generated without warnings.
