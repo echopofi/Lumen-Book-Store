@@ -326,3 +326,20 @@ Visual test notes:
   testing tool was available — all adjustments follow standard Tailwind
   responsive patterns (md: breakpoint for tablet+ desktop, sm: breakpoint
   for larger mobile/tablet).
+
+FAQ Page Build (/faq)
+================================================
+
+Files created:
+  app/faq/page.tsx            Server Component with 6 hardcoded Q&A pairs
+                              rendered as stacked rounded-2xl cards using
+                              bg-zinc-100, text-brand-purple headings, and
+                              the standard bg-zinc-50 page layout.
+
+Files modified:
+  components/Footer.tsx       Changed FAQ link href="/" to href="/faq".
+
+Build result:
+  Compiled successfully — 0 TypeScript errors, 0 lint errors.
+  Route ○ /faq generated as static (pre-rendered at build time).
+  15 total routes, all passing.
