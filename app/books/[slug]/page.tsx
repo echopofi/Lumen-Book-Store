@@ -33,7 +33,7 @@ async function RecommendedSection({ slug }: { slug: string }) {
   const recommended = await getRecommendedBooks(slug);
   return (
     <section className="mt-16">
-      <h2 className="text-2xl font-semibold mb-6">Recommended for You</h2>
+      <h2 className="text-2xl font-semibold mb-6 text-muted">Recommended for You</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
         {recommended.map((book) => (
           <Link
@@ -49,7 +49,7 @@ async function RecommendedSection({ slug }: { slug: string }) {
                 className="object-cover"
               />
             </div>
-            <h3 className="font-semibold text-sm mt-1">{book.title}</h3>
+            <h3 className="font-semibold text-sm mt-1 text-muted">{book.title}</h3>
             <p className="text-xs text-zinc-500">{book.author}</p>
             <p className="text-sm font-semibold text-brand-purple">
               ${book.price.toFixed(2)}
@@ -64,7 +64,7 @@ async function RecommendedSection({ slug }: { slug: string }) {
 function RecommendedSkeleton() {
   return (
     <section className="mt-16">
-      <h2 className="text-2xl font-semibold mb-6">Recommended for You</h2>
+      <h2 className="text-2xl font-semibold mb-6 ">Recommended for You</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
         {[1, 2, 3].map((i) => (
           <div key={i} className="flex flex-col gap-2 animate-pulse">
@@ -112,7 +112,7 @@ export default async function BookPage({
             <p className="text-xs font-medium text-brand-purple uppercase tracking-wider">
               {book.category}
             </p>
-            <h1 className="text-3xl sm:text-4xl font-bold">{book.title}</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold text-muted">{book.title}</h1>
             <p className="text-zinc-500">by {book.author}</p>
             <p className="text-2xl font-semibold text-brand-purple">
               ${book.price.toFixed(2)}
